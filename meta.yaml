@@ -2,10 +2,10 @@ name: template
 _id: 833e9120-f9c5-11e9-b219-fb34b4e94ef2
 metadata:
   author:
-    first: Jon
-    last: Guyer
-    email: guyer@nist.gov
-    github_id: guyer
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler@nist.gov
+    github_id: wd15
   timestamp: '16 October, 2019'
   summary: FiPy implementation of benchmark 8a
   implementation:
@@ -23,7 +23,7 @@ metadata:
     nodes: '1'
 benchmark:
   id: 8a
-  version: '0'
+  version: '1'
 data:
   - name: run_time
     values:
@@ -35,7 +35,7 @@ data:
         value: '0'
   - name: solid_fraction_1
     url: >-
-      ./8a-8a_0.99r-stats.txt
+      ./data/8a-8a_0.99r-stats.txt
     format:
       type: tsv
       parse:
@@ -52,7 +52,7 @@ data:
         as: 'y'
   - name: free_energy_1
     url: >-
-      ./8a-8a_0.99r-stats.txt
+      ./data/8a-8a_0.99r-stats.txt
     format:
       type: tsv
       parse:
@@ -135,4 +135,78 @@ data:
       - type: formula
         expr: datum.energy
         as: 'y'
+  - description: phase field contour plot
+    name: phase_field_1
+    type: contour
+    url: ./data/phi_fixed.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_2
+    type: contour
+    url: ./data/phi_fixed.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_3
+    type: contour
+    url: ./data/phase_field_3_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_4
+    type: contour
+    url: ./data/phase_field_4_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_5
+    type: contour
+    url: ./data/phase_field_5_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+
 date: 1572296231
